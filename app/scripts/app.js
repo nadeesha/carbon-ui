@@ -5,15 +5,23 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'carbonCastamere',
+    'ui.router',
+    'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
+        controller: 'MainCtrl',
+        navigationBar: {
+          name: 'Home',
+          glyphicon: 'home',
+          weight: 1000
+        }
       });
-  });
+  })
+  .run(function($state) {
+    $state.go('home');
+  })

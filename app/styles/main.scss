@@ -69,52 +69,11 @@ $icon-font-path:"/bower_components/bootstrap-sass-official/vendor/assets/fonts/b
         margin-bottom: 30px;
     }
 }
-#leftMenu {
-    .accordion-group {
-        margin-bottom: 0px;
-        border:0px;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        border-radius: 0px;
-    }
-    .accordion-heading {
-        padding: 10px;
-        border-top: 1px solid #717171;
-        border-bottom: 1px solid #5A5A5A;
-        background-color: #353535;
-        list-style-type:none;
-    }
-    .accordion-heading a {
-        color: #cbcbcb;
-        text-shadow: 0 1px 0 #3b3b3b;
-        text-decoration:none;
-        font-weight:bold;
-    }
-    .accordion-heading:hover {
-        background-color:#000;
-    }
-    .accordion-heading .active {
-        width: 182px;
-        height: 34px;
-        border: 1px solid #5b5b5b;
-        background-color: #353535;
-        background-image: -moz-linear-gradient(90deg, #4b4b4b 0%, #555 100%);
-        background-image: -o-linear-gradient(90deg, #4b4b4b 0%, #555 100%);
-        background-image: -webkit-linear-gradient(90deg, #4b4b4b 0%, #555 100%);
-        background-image: linear-gradient(90deg, #4b4b4b 0%, #555 100%);
-    }
-
-        .accordion-inner {
-            background-color:lightgrey;
+.navigation {
+    .state {
+        padding: 5px;
+        .glyphicon {
+            margin-right: 5px;
         }
-
-        .accordion-inner li {
-            padding: 10px;
-            list-style:none;
-            cursor:pointer;
-        }
-
-        .accordion-inner li:hover {
-            font-weight:bold;
-        }
+    }
 }
