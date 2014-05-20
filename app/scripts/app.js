@@ -5,7 +5,7 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    // 'carbon.castamere',
+    'carbon.castamere',
     'ui.router',
     'ui.bootstrap'
   ])
