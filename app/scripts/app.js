@@ -5,11 +5,12 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'carbonCastamere',
+    'carbon.castamere',
     'ui.router',
     'ui.bootstrap'
   ])
-  .config(function($stateProvider, $urlRouterProvider) {
+  .constant('moduleDir', 'carbon_components')
+  .config(function($stateProvider) {
     $stateProvider
       .state('home', {
         url: '/',
@@ -24,4 +25,4 @@ angular
   })
   .run(function($state) {
     $state.go('home');
-  })
+  });

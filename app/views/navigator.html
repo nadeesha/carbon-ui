@@ -1,5 +1,5 @@
 <ul class="nav nav-pills nav-stacked">
-    <li ng-repeat="state in navigatableStates | orderBy:'navigationBar.weight':reverse" ng-class="{active: active.name===state.name}">
+    <li ng-repeat="state in navigatableStates | orderBy:'navigationBar.weight':true" ng-class="{active: active.name===state.name}">
         <a ng-click="navigateTo(state)">
             <span class="glyphicon glyphicon-{{state.navigationBar.glyphicon}}" ng-show="state.navigationBar.glyphicon"></span>
             <span class="name">{{state.navigationBar.name}}</span>

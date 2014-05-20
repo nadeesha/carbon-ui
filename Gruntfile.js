@@ -64,7 +64,7 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        port: 9763,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
         livereload: 35729
@@ -151,7 +151,7 @@ module.exports = function (grunt) {
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: '<%= yeoman.app %>/bower_components/'
+        ignorePath: '<%= yeoman.app %>/components/'
       }
     },
 
@@ -164,7 +164,7 @@ module.exports = function (grunt) {
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/bower_components',
+        importPath: '<%= yeoman.app %>/components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
