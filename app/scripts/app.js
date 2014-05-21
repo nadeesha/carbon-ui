@@ -5,9 +5,9 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'carbon.castamere',
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'carbon.castamere'
   ])
   .constant('moduleDir', 'carbon_components')
   .config(function($stateProvider) {
