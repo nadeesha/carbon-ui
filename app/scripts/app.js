@@ -1,16 +1,23 @@
 'use strict';
 
-angular
+if (!carbon) {
+  throw('carbon not initialized. Make sure you included carbon.js');
+} else {
+  console && console.log && console.log('Number of carbon modules registered: ' + carbon.getModules().length);
+}
+
+var carbonUi = angular
   .module('carbonUiApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
     'ui.router',
-    'ui.bootstrap',
-    'carbon.castamere'
-  ])
-  .constant('moduleDir', 'carbon_components')
+    'ui.bootstrap'
+  ].concat(carbon.getModules()));
+
+carbonUi.constant('moduleDir', 'carbon_components')
   .config(function($stateProvider) {
+
     $stateProvider
       .state('home', {
         url: '/',
