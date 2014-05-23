@@ -5,25 +5,32 @@ An experimental UI framework for WSO2 Carbon.
 
 # Building a custom module
 
-## Initializing
+## Creating a new carbon-ui module
 
 Carbon modules are just plain old angular modules, with some infrastructure support from `carbonUiApp`, which is the base module for carbon-ui-framework.
 
 1. When you want to create a new module, you will have to create a script which initializes the module like this:
 
 	```js
-	angular.module('carbonCastamere', []);
+	angular.module('carbon.castamere', []);
 	```
-2. Include the custom module in you `index.html` file for `carbonUiApp`.
-3. And inject the dependency to the `carbonUiApp`
+2. Register the module with carbon-ui
 
 	```js
-	angular.module('carbonUiApp', ['carbonCastamere']);
+	carbon.registerModule('carbon.castamere');
 	```
-	
-## Routing
 
-Carbon modules can define their own routes. This is supported by the `ui.router` module by the [ui-router](https://github.com/angular-ui/ui-router) project, and `carbonUiApp.navigation` module.
+That's it! For a full example, refer to the [carbon.castamere](https://github.com/ncthis/carbon-castamere) project.
+
+## Using the carbon-ui module in carbon-ui
+
+You need to distribute your module with [bower](http://www.bower.io). You can register your custom module with bower and install it on the carbon-ui project with: `bower install`.
+
+To inject the custom module dependencies to the carbon-ui project run `grunt wiredep`.
+	
+## Routing and Navigation Support
+
+Carbon modules can define their own routes. This is supported by the `ui.router` module by the amazing [ui-router](https://github.com/angular-ui/ui-router) project, and `carbonUiApp.navigation` module.
 
 Defining a route is achieved by using the `$stateProvider` provider inside the `config` handler for your custom module. Like this:
 
