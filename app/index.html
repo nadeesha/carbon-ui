@@ -14,6 +14,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="components/pines-notify/pnotify.core.css" />
+    <link rel="stylesheet" href="components/pines-notify/pnotify.buttons.css" />
+    <link rel="stylesheet" href="components/pines-notify/pnotify.history.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -41,20 +44,8 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link</a>
-                    </li>
-                    <li><a href="#">Link</a>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a>
+                    <li><a ui-sref="login">Log in</a>
                     </li>
                 </ul>
             </div>
@@ -129,6 +120,17 @@
     <script src="components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="components/carbon-castamere/castamere.js"></script>
+    <script src="components/angular-local-storage/angular-local-storage.js"></script>
+    <script src="components/moment/moment.js"></script>
+    <script src="components/angular-moment/angular-moment.js"></script>
+    <script src="components/pines-notify/pnotify.core.js"></script>
+    <script src="components/pines-notify/pnotify.buttons.js"></script>
+    <script src="components/pines-notify/pnotify.callbacks.js"></script>
+    <script src="components/pines-notify/pnotify.confirm.js"></script>
+    <script src="components/pines-notify/pnotify.desktop.js"></script>
+    <script src="components/pines-notify/pnotify.history.js"></script>
+    <script src="components/pines-notify/pnotify.nonblock.js"></script>
+    <script src="components/angular-pines-notify/src/pnotify.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -137,6 +139,9 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/components.js"></script>
     <script src="scripts/directives/navigation.js"></script>
+    <script src="scripts/services/usersvc.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/services/routesvc.js"></script>
     <!-- endbuild -->
 </body>
 
