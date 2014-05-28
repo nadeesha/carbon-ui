@@ -21,12 +21,8 @@ var carbonUi = angular
   ].concat(carbon.getModules()));
 
 carbonUi
-  .value('auth', {
-    accessToken: null,
-    accessTokenExpiredOn: null
-  })
-  .constant('API', 'http://localhost:9763/carbon-api')
-  .config(function($stateProvider, $provide, $httpProvider) {
+  .config(function($stateProvider) {
+
     $stateProvider
       .state('home', {
         url: '/',
@@ -38,27 +34,15 @@ carbonUi
           weight: 1000
         }
       })
+
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       });
 
-    $provide.factory('defaultInterceptor', function(auth) {
-      return {
-        'request': function(config) {
-          if(auth.accessToken) {
-            config.headers.Authorization = 'Bearer ' + auth.accessToken;
-            config.headers['Content-type'] = 'application/json';
-          }
-
-          return config;
-        }
-      };
-    });
-
-    $httpProvider.interceptors.push('defaultInterceptor');
   })
-  .run(function($state) {
+  .run(function($state, carbonApiProvider) {
+    carbonApiProvider.setEndpoint('http://localhost:9763/carbon-api');
     $state.go('home');
   });

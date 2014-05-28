@@ -1,33 +1,35 @@
 'use strict';
 
 angular.module('carbonUiApp')
-	.service('UserSvc', function UserSvc(localStorageService, $http, notificationService, RouteSvc, auth, API) {
+	.service('UserSvc', function UserSvc(localStorageService, $http, notificationService, carbonApiProvider) {
 		var user = localStorageService.get('user');
-		var loggedIn = false;
 
-		var login = function(username, password) {
+		this.login = function(username, password) {
 			var credentials = JSON.stringify({
 				username: username,
 				password: password
 			});
 
-			return $http.post(RouteSvc.login, credentials).then(function(data) {
-				auth.accessToken = data.accessToken;
-				auth.accessTokenExpiredOn = data.accessTokenExpiredOn;
+			return $http.post(carbonApiProvider.url('/login'), credentials).then(function(data) {
+
+				// on success
+
+				carbonApiProvider.setAccessToken(data.accessToken, data.accessTokenExpiredOn);
 				notificationService.success('Successfully logged in');
-				loggedIn = true;
 				return true;
 			}, function() {
+
+				// on failure
+
 				notificationService.error('Error logging in');
 				return false;
 			});
 		};
 
-		if (user) {
-			loggedIn = moment(user.expiredOn).isAfter(Date.now);
-		}
+		if (user && moment(user.expiredOn).isAfter(Date.now)) {
 
-		return {
-			login: login,
-		};
+			// user is already logged in
+			// do something here
+
+		}
 	});
