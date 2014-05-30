@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('carbonUiApp')
-  .controller('LoginCtrl', function ($scope, UserSvc, $state) {
+  .controller('LoginCtrl', function ($scope, userSvc, $state) {
     $scope.login = function () {
-    	UserSvc.login($scope.username, $scope.password).then(function (success) {
+    	userSvc.login($scope.username, $scope.password).then(function (success) {
     		if(success) {
     			$state.go('home');
     		} else {

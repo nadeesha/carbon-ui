@@ -34,7 +34,6 @@ carbonUi
           weight: 1000
         }
       })
-
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',

@@ -15,17 +15,16 @@ angular.module('carbonUiApp')
     $httpProvider.interceptors.push('jsonHeaderInterceptor');
 
     // holding the access token and it's expiration
-    var accessToken;
-    var accessTokenExpiredOn;
-    var endpoint;
+    var _accessToken;
+    var _accessTokenExpiredOn;
+    var _endpoint;
 
     this.setAccessToken = function(pAccessToken, pAccessTokenExpiredOn) {
 
       // upon setting the access token, let's tell the $httpProvider
       // that we need that to be appended to all the requests
-
-      accessToken = pAccessToken;
-      accessTokenExpiredOn = pAccessTokenExpiredOn;
+      _accessToken = pAccessToken;
+      _accessTokenExpiredOn = pAccessTokenExpiredOn;
 
       $provide.factory('authHeaderInterceptor', function() {
         return {
@@ -40,11 +39,11 @@ angular.module('carbonUiApp')
     };
 
     this.setEndpoint = function (pEndpoint) {
-      endpoint = pEndpoint;
+      _endpoint = pEndpoint;
     };
 
     this.url = function (url) {
-      return endpoint + url;
+      return _endpoint + url;
     };
 
     // method for instantiating
